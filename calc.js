@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
-const ISAcompare = (salary) => {
+const ISAcompare = (money) => {
+    const salary = parseInt(money.replace(/,/g, ''), 10);
     const thinkfulPercent = 0.15;
     const thinkfulMos = 3;
     const thinkfulMax = 28000;
@@ -34,62 +35,61 @@ const ISAcompare = (salary) => {
         return lambdaMax;
     };
     const bigTest = () => {
-        if (salary < 40000) {
-            document.querySelector('.insertHere').textContent = `Good news/Bad news. This salary doesnt make enough money to incur payments from either. However, supporting yourself will be difficult on this salary. Good luck on a better offer!`;
+        if (isNaN(salary)) {
+            document.querySelector('.insertHere').innerHTML = `Please submit an integer without the dollar sign. Example "1,000,000" not "one million" or "$1,000,000".`;
+        }
+        else if (salary < 40000) {
+            document.querySelector('.insertHere').innerHTML = `Good news/Bad news. This salary doesnt make enough money to incur payments from either. However, supporting yourself will be difficult on this salary. Good luck on a better offer!<br>
+            Feel free to submit another salary below.`;
         }
         else if (salary >= 40000 && salary < 50000) {
-            document.querySelector('.insertHere').textContent = `At this salary you wont be making any payments with Lambda School. Thinkful however will cost you approximately ${Math.ceil(salary * thinkfulPercent / 12)} a month until your salary changes in which case we'll reevaluate.`;
+            document.querySelector('.insertHere').innerHTML = `At this salary you wont be making any payments with Lambda School. Thinkful however will cost you approximately $${Math.ceil(salary * thinkfulPercent / 12).toLocaleString()} a month until your salary changes in which case we'll reevaluate.<br>
+            Feel free to submit another salary below.`;
         }
         else if (thinkfulMaxNew < lambdaMaxNew && thinkfulMaxNew === 28000) {
-            document.querySelector('.insertHere').innerHTML = `<b>Thinkful</b> is the winner with a maximum payment of $${Math.round(thinkfulMaxNew)}. You would save a total of $${Math.round((lambdaMaxNew - thinkfulMaxNew))} by picking Thinkful. <br>
-        This bootcamp will cost you approximately ${Math.ceil(salary * thinkfulPercent / 12)} a month before taxes. <br>
-        At $${salary} annually, you'll hit the max of the Income Sharing Agreement in ${Math.ceil(thinkfulMaxPaidMos)} months. <br>
-        If you choose <i>Lambda School</i> instead, it will cost you approximately ${Math.ceil(salary * lambdaPercent / 12)} a month before taxes.`;
+            document.querySelector('.insertHere').innerHTML = `<b>Thinkful</b> is the winner with a maximum payment of $${Math.round(thinkfulMaxNew).toLocaleString()}. You would save a total of $${Math.round((lambdaMaxNew - thinkfulMaxNew)).toLocaleString()} by picking Thinkful. <br>
+        This bootcamp will cost you approximately $${Math.ceil(salary * thinkfulPercent / 12).toLocaleString()} a month before taxes. <br>
+        At $${salary.toLocaleString()} annually, you'll hit the max of the Income Sharing Agreement in ${Math.ceil(thinkfulMaxPaidMos).toLocaleString()} months. <br>
+        If you choose <i>Lambda School</i> instead, it will cost you approximately $${Math.ceil(salary * lambdaPercent / 12).toLocaleString()} a month before taxes.<br>
+        Feel free to submit another salary below.`;
         }
         else if (thinkfulMaxNew < lambdaMaxNew) {
-            document.querySelector('.insertHere').innerHTML = `<b>Thinkful</b> is the winner with a maximum payment of $${Math.round(thinkfulMaxNew)}. You would save a total of $${Math.round((lambdaMaxNew - thinkfulMaxNew))} by picking Thinkful. <br>
-        This bootcamp will cost you approximately ${Math.ceil(salary * thinkfulPercent / 12)} a month before taxes. <br>
-        If you choose <i>Lambda School</i> instead, it will cost you approximately ${Math.ceil(salary * lambdaPercent / 12)} a month before taxes.`;
+            document.querySelector('.insertHere').innerHTML = `<b>Thinkful</b> is the winner with a maximum payment of $${Math.round(thinkfulMaxNew).toLocaleString()}. You would save a total of $${Math.round((lambdaMaxNew - thinkfulMaxNew)).toLocaleString()} by picking Thinkful. <br>
+        This bootcamp will cost you approximately $${Math.ceil(salary * thinkfulPercent / 12).toLocaleString()} a month before taxes. <br>
+        If you choose <i>Lambda School</i> instead, it will cost you approximately $${Math.ceil(salary * lambdaPercent / 12).toLocaleString()} a month before taxes.<br>
+        Feel free to submit another salary below.`;
         }
         else if (lambdaMaxNew < thinkfulMaxNew) {
-            document.querySelector('.insertHere').innerHTML = `<b>Lambda School</b> is the winner with a maximum payment of $${Math.round(lambdaMaxNew)}. You would save a total of $${Math.round((thinkfulMaxNew - lambdaMaxNew))} by choosing Lambda. <br>
+            document.querySelector('.insertHere').innerHTML = `<b>Lambda School</b> is the winner with a maximum payment of $${Math.round(lambdaMaxNew).toLocaleString()}. You would save a total of $${Math.round((thinkfulMaxNew - lambdaMaxNew)).toLocaleString()} by choosing Lambda. <br>
         This bootcamp will cost you approximately ${Math.ceil(salary * lambdaPercent / 12)} a month before taxes. <br>
-        At $${salary} annually, you'll hit the max of the Income Sharing Agreement in ${Math.ceil(lambdaMaxPaidMos)}. <br>
-        If you choose <i>Thinkful</i> instead, it will cost you approximately ${Math.ceil(salary * thinkfulPercent / 12)} a month before taxes.`;
+        At $${salary.toLocaleString()} annually, you'll hit the max of the Income Sharing Agreement in ${Math.ceil(lambdaMaxPaidMos)} months. <br>
+        If you choose <i>Thinkful</i> instead, it will cost you approximately $${Math.ceil(salary * thinkfulPercent / 12)} a month before taxes.<br>
+        Feel free to submit another salary below.`;
         }
         else if (lambdaMaxNew < thinkfulMaxNew) {
-            document.querySelector('.insertHere').innerHTML = `<b>Lambda School</b> is the winner with a maximum payment of $${Math.round(lambdaMaxNew)}. You would save a total of $${Math.round((thinkfulMaxNew - lambdaMaxNew))} by choosing Lambda. <br>
-        This bootcamp will cost you approximately ${Math.ceil(salary * lambdaPercent / 12)} a month before taxes. <br>
-        If you choose <i>Thinkful</i> instead, it will cost you approximately ${Math.ceil(salary * thinkfulPercent / 12)} a month before taxes.`;
+            document.querySelector('.insertHere').innerHTML = `<b>Lambda School</b> is the winner with a maximum payment of $${Math.round(lambdaMaxNew).toLocaleString()}. You would save a total of $${Math.round((thinkfulMaxNew - lambdaMaxNew)).toLocaleString()} by choosing Lambda. <br>
+        This bootcamp will cost you approximately $${Math.ceil(salary * lambdaPercent / 12).toLocaleString()} a month before taxes. <br>
+        If you choose <i>Thinkful</i> instead, it will cost you approximately ${Math.ceil(salary * thinkfulPercent / 12).toLocaleString()} a month before taxes.<br>
+        Feel free to submit another salary below.`;
         }
     };
-    // const lastSalaryEval = () => {
-    //     if (salary >= 50000) {
-    //         bigTest();
-    //     }
-    //     else if (salary >= 40000) {
-    //         document.querySelector('.insertHere').textContent = `At this salary you wont be making any payments with Lambda School. Thinkful however will cost you approximately ${Math.ceil(salary * thinkfulPercent / 12)} a month until your salary changes in which case we'll reevaluate.`;
-    //     }
-    //     else {
-    //         document.querySelector('.insertHere').textContent = `Good news/Bad news. This salary doesnt make enough money to incur payments from either. However, supporting yourself will be difficult on this salary. Good luck on a better offer!`;
-    //     }
-    // };
     thinkfulTest();
     lambdaTest();
     bigTest();
-    // lastSalaryEval();
 };
 
 const submitter = document.querySelector('.submitter');
-// const compareSchool = ISAcompare(money);
 submitter.addEventListener('click', () => {
     const money = document.querySelector('.listener').value;
     ISAcompare(money);
+    document.querySelector('.listener').textContent = "";
+    // document.querySelector('.pExplain').textContent = "Feel free to submit another salary";
 });
 document.querySelector('.listener').addEventListener('keypress', (e) => {
     const key = e.which || e.keyCode;
     if (key === 13) { // 13 is enter
         const money = document.querySelector('.listener').value;
         ISAcompare(money);
+        document.querySelector('.listener').textContent = "";
     }
 });
