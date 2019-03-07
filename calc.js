@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 const ISAcompare = (money) => {
-    const salary = parseInt(money.replace(/,/g, ''), 10);
+    const salary = parseInt(money.replace(/\$|,/g, ''), 10);
     const thinkfulPercent = 0.15;
     const thinkfulMos = 3;
     const thinkfulMax = 28000;
@@ -36,7 +36,7 @@ const ISAcompare = (money) => {
     };
     const bigTest = () => {
         if (isNaN(salary)) {
-            document.querySelector('.insertHere').innerHTML = `Please submit an integer without the dollar sign. Example "1,000,000" not "one million" or "$1,000,000".`;
+            document.querySelector('.insertHere').innerHTML = `Please submit an integer. Example "1,000,000", "$100,000", or "1000" but not "one million" or "$100K".`;
         }
         else if (salary < 40000) {
             document.querySelector('.insertHere').innerHTML = `Good news/Bad news. This salary doesnt make enough money to incur payments from either. However, supporting yourself will be difficult on this salary. Good luck on a better offer!<br>
@@ -78,18 +78,10 @@ const ISAcompare = (money) => {
     bigTest();
 };
 
-const submitter = document.querySelector('.submitter');
-submitter.addEventListener('click', () => {
+const submitter = document.querySelector('#submitter');
+submitter.addEventListener('submit', (e) => {
     const money = document.querySelector('.listener').value;
     ISAcompare(money);
     document.querySelector('.listener').textContent = "";
-    // document.querySelector('.pExplain').textContent = "Feel free to submit another salary";
-});
-document.querySelector('.listener').addEventListener('keypress', (e) => {
-    const key = e.which || e.keyCode;
-    if (key === 13) { // 13 is enter
-        const money = document.querySelector('.listener').value;
-        ISAcompare(money);
-        document.querySelector('.listener').textContent = "";
-    }
+    e.preventDefault();
 });
