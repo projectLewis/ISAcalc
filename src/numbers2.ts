@@ -128,59 +128,59 @@ const stringToNum2 = (string: string): string | number => {
       else if (strOutput[i] === numArray2[9]) {
         toNum.push('9');
       }
-      else if (strOutput[i] === numArray2[10]) {
-        toNum.push('10');
-      }
-      else if (strOutput[i] === numArray2[11]) {
-        toNum.push('11');
-      }
-      else if (strOutput[i] === numArray2[12]) {
-        toNum.push('12');
-      }
-      else if (strOutput[i] === numArray2[13]) {
-        toNum.push('13');
-      }
-      else if (strOutput[i] === numArray2[14]) {
-        toNum.push('14');
-      }
-      else if (strOutput[i] === numArray2[15]) {
-        toNum.push('15');
-      }
-      else if (strOutput[i] === numArray2[16]) {
-        toNum.push('16');
-      }
-      else if (strOutput[i] === numArray2[17]) {
-        toNum.push('17');
-      }
-      else if (strOutput[i] === numArray2[18]) {
-        toNum.push('18');
-      }
-      else if (strOutput[i] === numArray2[19]) {
-        toNum.push('19');
-      }
+      // else if (strOutput[i] === numArray2[10]) {
+      //   toNum.push('10');
+      // }
+      // else if (strOutput[i] === numArray2[11]) {
+      //   toNum.push('11');
+      // }
+      // else if (strOutput[i] === numArray2[12]) {
+      //   toNum.push('12');
+      // }
+      // else if (strOutput[i] === numArray2[13]) {
+      //   toNum.push('13');
+      // }
+      // else if (strOutput[i] === numArray2[14]) {
+      //   toNum.push('14');
+      // }
+      // else if (strOutput[i] === numArray2[15]) {
+      //   toNum.push('15');
+      // }
+      // else if (strOutput[i] === numArray2[16]) {
+      //   toNum.push('16');
+      // }
+      // else if (strOutput[i] === numArray2[17]) {
+      //   toNum.push('17');
+      // }
+      // else if (strOutput[i] === numArray2[18]) {
+      //   toNum.push('18');
+      // }
+      // else if (strOutput[i] === numArray2[19]) {
+      //   toNum.push('19');
+      // }
       else if (strOutput[i] === numArray2[20]) {
-        toNum.push('20');
+        toNum.push('2');
       }
       else if (strOutput[i] === numArray2[21]) {
-        toNum.push('30');
+        toNum.push('3');
       }
       else if (strOutput[i] === numArray2[22]) {
-        toNum.push('40');
+        toNum.push('4');
       }
       else if (strOutput[i] === numArray2[23]) {
-        toNum.push('50');
+        toNum.push('5');
       }
       else if (strOutput[i] === numArray2[24]) {
-        toNum.push('60');
+        toNum.push('6');
       }
       else if (strOutput[i] === numArray2[25]) {
-        toNum.push('70');
+        toNum.push('7');
       }
       else if (strOutput[i] === numArray2[26]) {
-        toNum.push('80');
+        toNum.push('8');
       }
       else if (strOutput[i] === numArray2[27]) {
-        toNum.push('90');
+        toNum.push('9');
       }
     }
   }
@@ -188,4 +188,4 @@ const stringToNum2 = (string: string): string | number => {
   return Number(toNum.join(""));
 };
 
-console.log(stringToNum2("two thousand"));
+console.log(stringToNum2("fifty-five"));
