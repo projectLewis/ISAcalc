@@ -45,6 +45,7 @@ module.exports = {
             "warn",
             "always"
         ],
+        "no-else-return": ["error", { "allowElseIf": true }],
         "prefer-const": "warn",
         "prefer-template": 0,
         "brace-style": [
@@ -54,6 +55,7 @@ module.exports = {
         "no-console": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/indent": "off",
+        "@typescript-eslint/no-unused-vars": "off",
         // ["error", {
         //     "allowTypedFunctionExpressions": true
         // }],
